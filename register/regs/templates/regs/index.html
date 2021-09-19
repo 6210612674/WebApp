@@ -1,0 +1,18 @@
+{% extends "regs/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/course_styles.css' %}">
+
+<header><h1>Course</h1></header>
+
+{% for reg in regs %}
+    {% if reg.course_status == 1 %}
+        <article class="ar"><a class="course" href="{% url 'regs:reg' reg.id %}">{{ reg }}</a></article><br>
+    {% endif %}
+{% endfor %}
+
+<div class="circle"></div>
+
+{% endblock %}

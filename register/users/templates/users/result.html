@@ -1,0 +1,16 @@
+{% extends "regs/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/course_styles.css' %}">
+
+<header><h1>Enrollment<br>results</h1></header>
+
+
+{% for reg in courselist %}
+    <article class="ar"><a class="course" href="{% url 'regs:reg' reg.id %}">{{ reg }}</a></article><br>
+{% endfor %}
+
+
+{% endblock %}

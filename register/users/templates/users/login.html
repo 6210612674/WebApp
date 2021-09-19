@@ -1,0 +1,48 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Office of the Registrar, Mongkol University</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login_styles.css' %}">
+</head>
+
+{% if message %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/invalid_styles.css' %}">
+    <div class="alert warning-alert">
+        <h3>{{ message }}</h3>
+    </div>
+    
+{% endif %}
+
+{% if messages %}
+
+    {% for message in messages %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/invalid_styles.css' %}">
+        <div class="alert warning-alert">
+            <h3>{{ message }}</h3>
+        </div>
+    {% endfor %}
+    
+{% endif %}
+
+<div class="user">
+    <header class="user__header">
+        <h1 class="user__title">Welcome</h1>
+    </header>
+
+    <form action="{% url 'users:login' %}?next={{ next }}" method="post">
+
+        <div class="form__group">{% csrf_token %}
+            <input type="text" name="username" placeholder="Username" class="form__input" />
+        </div>
+
+        <div class="form__group">{% csrf_token %}
+            <input type="password" name="password" placeholder="Password" class="form__input" />
+        </div>
+
+        <input class="btn" type="submit" value="LOGIN">
+
+    </form>
+</div>
+</html>

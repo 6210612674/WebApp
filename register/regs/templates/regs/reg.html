@@ -1,0 +1,42 @@
+{% extends "regs/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/courseinfo_styles.css' %}">
+
+<h1>{{ reg.course_code }} {{ reg.course_name }}</h1>
+
+<div class="info">
+    <p></p>
+    <p>Course Code : {{ reg.course_code }} </p>
+    <p>Course Name : {{ reg.course_name }} </p>
+    <p>Course Semester : {{ reg.course_semester }}/<script>document.write( new Date().getFullYear()+543 );</script></p>
+
+    {% if reg.course_status == 1 %}
+        <p>Course Status : OPEN </p>
+    {% endif %}
+
+    <p>Seat : {{ count }}/{{ reg.course_quota }}</p>
+</div>
+
+<div class="allbtn">
+    {% if count == reg.course_quota %}
+        <button><a class="regbtn" href="{% url 'regs:index' %}" onclick="CourseFull()">enroll</a></button>
+    {% else %}
+        <button><a class="regbtn" href="{% url 'regs:book' reg.id %}">enroll</a></button>
+    {% endif %}
+    
+    <button><a class="regbtn" href="{% url 'regs:remove' reg.id %}" onclick="NotYet()">remove</a></button>
+    
+    <button><a class="regbtn" href="{% url 'regs:index' %}">back</a></button>
+</div>
+
+<script>
+    function CourseFull() {
+        alert("Course full")
+    }
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,58 @@
+* {
+  box-sizing:border-box;
+  overflow: hidden;
+  margin: auto;
+}
+
+body {
+  background: rgb(153,108,201);
+  background: radial-gradient(circle, rgba(153,108,201,0.5891398795846463) 11%, rgba(105,159,150,0.31743119611125703) 55%);
+  height: 100vh;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  margin-left: 100px;
+  animation: 3s slidein_left;
+  color: #343A40;
+}
+
+p {
+  font-size: 20px;
+  margin-left: 110px;
+  line-height: 1.6;
+  animation: 2.6s slidein_up;
+}
+
+.info {
+  margin-top: 10px;
+  font-family: monospace;
+  color: #565657;
+}
+
+button {
+  margin-left: 20px;
+  background-color: Transparent;
+  border: 2px solid #505559;
+  cursor:pointer;
+  overflow: hidden;
+  padding: 10px 10px;
+}
+
+button:hover {
+  background: #505559;
+  color: white;
+}
+
+.regbtn {
+  text-decoration: none;
+  text-align: center;
+  color: #505559;
+  font-family: serif;
+}
+
+.allbtn {
+  margin-top: 30px;
+  margin-left: 90px;
+}

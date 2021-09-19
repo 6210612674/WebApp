@@ -1,0 +1,23 @@
+/* Invalid Credential */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.alert{
+    width:30%;
+    margin:20px auto;
+    padding:30px;
+    position:relative;
+    border-radius:5px;
+    box-shadow: 0 0 10px 5px #b3b0ab;
+    color: #33312f;
+}
+
+.warning-alert{
+    background-color: #ffd48a;
+    border-left: 5px solid darken(#ffd48a, 50);
+    opacity: 0.8;
+}
+

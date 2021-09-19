@@ -1,0 +1,18 @@
+{% extends "regs/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/info_styles.css' %}">
+
+<h1>Welcome, <br>{{ request.user.first_name.title }}</h1>
+
+<div class="info">
+    <p></p>
+    <p>User : {{ request.user.username }}</p>
+    <p>First name : {{ request.user.first_name }}</p>
+    <p>Last name : {{ request.user.last_name }}</p>
+    <p>Email : {{ request.user.email }}</p>
+</div>
+
+{% endblock %}

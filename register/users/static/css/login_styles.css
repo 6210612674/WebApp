@@ -1,0 +1,98 @@
+body {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #ade2ed 20%, #a271e3 50%, #5ba89f 80%);
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.user {
+    width: 200%;
+    max-width: 300px;
+    margin: 20vh auto;
+    opacity: 0.7;
+}
+
+.user__header {
+    text-align: center;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.2s forwards;
+}
+
+.user__title {
+    font-family: Georgia;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+form {
+    margin-top: 20px;
+    border-radius: 25px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 1000ms ease-in-out 0.9s forwards;
+    box-shadow:0 1px 0 #080808;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 27px;
+    font-family: "Roboto";
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+.form__input:focus {background: #e1e5eb;}
+
+.btn {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 25px;
+    font-size: 15px;
+    font-family: "Roboto";
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #3f4245;
+    transition: 0.3s;
+}
+.btn:hover {background: #505559;}
+
+@keyframes arrive {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}
+

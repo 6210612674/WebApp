@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Office of the Registrar, Mongkol University</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/nav.css' %}">
+    </head>
+
+    <nav>
+        <ul class="menuItems">
+            <li id="bar"><a href="{% url 'users:index' %}" id="inbar" data-item="My&nbsp;profile">My profile</a></li>
+            <li id="bar"><a href="{% url 'users:results' %}" id="inbar" data-item="My&nbsp;course">My course</a></li>
+            <li id="bar"><a href="/regs" id="inbar" data-item="Course&nbsp;search">Course search</a></li>
+            <li id="bar"><a href="{% url 'users:logout' %}" id="inbar" data-item="Logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
+
+
+
+
+
