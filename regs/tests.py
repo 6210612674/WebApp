@@ -46,44 +46,37 @@ class RegViewTestCase(TestCase):
 
 
     def test_guest_user_cannot_book(self):
-        user = User.objects.get(username="user1")
+        user = User.objects.create(username="user2", password="1234", email="user2@example.com")
         r = Reg.objects.first()
-        r.capacity = 1
-        r.save()
         c = Client()
         response = c.get(reverse('regs:book', args=(r.id,)))
-        self.assertEqual(r.students.count(), 0)
+        self.assertEqual(r.students.count(), 1)
 
 
     def test_authenticated_user_can_book(self):
-        user = User.objects.get(username="user1")
+        user = User.objects.create(username="user2", password="1234", email="user2@example.com")
         r = Reg.objects.first()
-        r.capacity = 1
-        r.save()
+        r.capacity = 2
+        r.save
         c = Client()
         c.force_login(user)
         response = c.get(reverse('regs:book', args=(r.id,)))
-        self.assertEqual(r.students.count(), 1)
+        self.assertEqual(r.students.count(), 2)
 
 
     def test_guest_user_cannot_remove(self):
         user = User.objects.get(username="user1")
         r = Reg.objects.first()
-        r.capacity = 1
-        r.save()
         c = Client()
         response = c.get(reverse('regs:remove', args=(r.id,)))
-        self.assertEqual(r.students.count(), 0)
+        self.assertEqual(r.students.count(), 1)
 
 
     def test_authenticated_user_can_remove(self):
         user = User.objects.get(username="user1")
         r = Reg.objects.first()
-        r.save()
         c = Client()
         c.force_login(user)
-        response_book = c.get(reverse('regs:book', args=(r.id,)))
-        self.assertEqual(r.students.count(), 1)
-        response_remove = c.get(reverse('regs:remove', args=(r.id,)))
+        response = c.get(reverse('regs:remove', args=(r.id,)))
         self.assertEqual(r.students.count(), 0)
 
